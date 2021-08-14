@@ -36,10 +36,11 @@ $(function() {
             // 2. 发起Ajax的POST请求
         var data = {
             username: $('#form_reg [name=username]').val(),
-            password: $('#form_reg [name=password]').val()
+            password: $('#form_reg [name=password]').val(),
+            repassword: $('#form_reg [name=repassword]').val()
         }
         $.post('/api/reguser', data, function(res) {
-            if (res.status !== 0) {
+            if (res.code !== 0) {
                 return layer.msg(res.message)
             }
             layer.msg('注册成功，请登录！')
@@ -58,14 +59,14 @@ $(function() {
             //快速获取表单中的数据
             data: $(this).serialize(),
             success: function(res) {
-                if (res.status !== 0) {
+                if (res.code !== 0) {
                     return layer.msg('登录失败！')
                 }
                 layer.msg('登录成功！')
                     //将成功登录的得到的token字符串保存到localStroge中
                 localStorage.setItem('token', res.token)
-                    // console.log(res.token);
-                    //跳转到后台主页
+                console.log(res.token);
+                //跳转到后台主页
                 location.href = '/index.html'
             }
         })
