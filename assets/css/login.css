@@ -4,19 +4,18 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-    /* background-color: pink; */
     background: url('/assets/images/login_bg.jpg') no-repeat center;
     background-size: cover;
 }
 
 .loginAndRegBox {
-    position: absolute;
-    left: 50%;
-    top: 50%;
     width: 400px;
     height: 310px;
     background-color: #fff;
-    transform: translate(-50%, -50%)
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .title-box {

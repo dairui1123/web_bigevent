@@ -2,8 +2,8 @@ $(function() {
     //调用函数
     getUserInfo()
 
-
-    // 点击按钮，实现退出功能
+    var layer = layui.layer
+        // 点击按钮，实现退出功能
     $('#btnLogout').on('click', function() {
         // 提示用户是否确认退出
         layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function(index) {
@@ -15,13 +15,9 @@ $(function() {
 
             // 关闭 confirm 询问框
             layer.close(index)
-
-
         })
     })
 })
-
-
 
 
 
@@ -60,11 +56,11 @@ function getUserInfo() {
 //渲染用户信息
 function renderAvatar(user) {
     //1.获取用户的名称
-    var name = user.nickname || user.user.name
+    var name = user.nickname || user.username
         //2.设置欢迎的文本
     $('#welcome').html('欢迎&nbsp;&nbsp;' + name)
         //3.按需渲染用户的头像
-    if (user.user.pic !== null) {
+    if (user.user_pic !== null) {
         //3.1渲染图片头像
         $('.layui-nav-img').attr('src', user.user_pic).show()
         $('.text-avatar').hide()
@@ -75,4 +71,3 @@ function renderAvatar(user) {
         $('test-avatar').html(first).show()
     }
 }
-var layer = layui.layer
